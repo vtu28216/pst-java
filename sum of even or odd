@@ -1,0 +1,23 @@
+import java.util.Scanner;
+import java.util.function.IntPredicate;
+public class Main {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        String type = sc.next().toLowerCase();
+        IntPredicate isEven = n -> n % 2 == 0;
+        IntPredicate isOdd = n -> n % 2 != 0;
+        int sum = 0;
+        int temp = Math.abs(num);
+        while (temp > 0) {
+            int digit = temp % 10;
+            if (type.equals("even") && isEven.test(digit)) {
+                sum += digit;
+            } else if (type.equals("odd") && isOdd.test(digit)) {
+                sum += digit;
+            }
+            temp /= 10;
+        }
+        System.out.println(sum);
+    }
+}
