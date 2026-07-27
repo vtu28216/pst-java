@@ -1,0 +1,22 @@
+import java.util.Arrays;
+import java.util.List;
+import java.util.Scanner;
+import java.util.stream.Collectors;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        if (!scanner.hasNextInt()) return;
+        int n = scanner.nextInt();
+        int[] salaries = new int[n];
+        for (int i = 0; i < n; i++) {
+            salaries[i] = scanner.nextInt();
+        }
+        List<Long> updatedSalaries = Arrays.stream(salaries)
+                .mapToObj(salary -> Math.round(salary * 1.10)) 
+                .collect(Collectors.toList());
+        for (int i = 0; i < updatedSalaries.size(); i++) {
+            System.out.print(updatedSalaries.get(i) + (i == updatedSalaries.size() - 1 ? "" : " "));
+        }
+        scanner.close();
+    }
+}
