@@ -1,0 +1,14 @@
+import java.util.function.Function;
+public class ProcessOrder {
+    static double processOrder(double price, Function<Double, Double> operation) {
+        double result = operation.apply(price);
+        System.out.println("Updated Price: " + result);
+        return result;
+    }
+    public static void main(String[] args) {
+        double orderPrice = 5000;
+        orderPrice = processOrder(orderPrice, p -> p - (p * 0.10));
+        orderPrice = processOrder(orderPrice, p -> p - (p * 0.20));
+        System.out.println("Final Order Price: " + orderPrice);
+    }
+}
