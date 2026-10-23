@@ -1,0 +1,25 @@
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+class Codechef
+{
+	public static void main (String[] args) throws java.lang.Exception
+	{
+	Scanner sc = new Scanner(System.in);
+        if (sc.hasNextInt()) {
+            int t = sc.nextInt();
+            while (t-- > 0) {
+                long n = sc.nextLong();
+                long a = sc.nextLong();
+                
+                long sideCount = (long) Math.sqrt(n);
+                long ans = sideCount * a;
+                
+                System.out.println(ans);
+            }
+        }
+        sc.close();	// your code goes here
+
+	}
+}
